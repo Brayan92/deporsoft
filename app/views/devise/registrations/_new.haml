@@ -1,0 +1,18 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .form-group
+    = f.label :first_name,class:"sr-only"
+    = f.text_field :first_name,class:"l-form-username form-control",placeholder: "First name"
+  .form-group
+    = f.label :last_name,class:"sr-only"
+    = f.text_field :last_name,class:"l-form-username form-control",placeholder: "Last name"
+  .form-group
+    = f.label :email,class:"sr-only"
+    = f.email_field :email,class:"l-form-username form-control",placeholder: "User or email"
+  .form-group
+    = f.label :password,class:"sr-only"
+    = f.password_field :password,class:"l-form-password form-control",placeholder: "Password"
+  .form-group
+    = f.password_field :password_confirmation,class:"l-form-password form-control",placeholder: "Repeat password"
+  .form-group
+    =f.submit "Create account",class:"btn btn-main"

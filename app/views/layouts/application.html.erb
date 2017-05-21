@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DeporSoft</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+     <div class="container" style="width: 100%;
+height: 100%;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-flex-direction: column;
+-ms-flex-direction: column;
+flex-direction: column;
+overflow-y: auto;
+overflow-x: hidden;
+position: relative;
+-webkit-overflow-scrolling: touch;padding:0px">
+        <%= render "partials/nav" %>
+<!--        <p style="<%= 'display:none;' if notice.nil? && alert.nil?%>"><%= notice %> <%= alert %></p> -->
+        <div class="main-background-form">
+            <%= yield %>
+        </div>
+    </div> 
+  </body>
+</html>

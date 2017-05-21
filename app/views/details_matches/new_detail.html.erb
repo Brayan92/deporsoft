@@ -1,0 +1,93 @@
+<h1> Details matches</h1>
+<div class="col-md-12">
+	      <div class="col-md-12 row">
+	        <div class="titulo col-md-12 row">
+	          <div class="col-md-2"></div>
+	          <div class="col-md-8">
+		          <div class="col-md-4">
+		            <div>
+		              <div class="avatar-team details center-element" style="background-image:url(<%=@match.local.escudo.url(:medium)%>);">
+		              </div>
+		            </div>
+		            <span>
+		             <h2 class="text-center"><%=@match.local.name%></h2>
+		            </span> 
+		           </div>
+		          <div class="col-md-4" style="text-align:center;">
+		            <div>
+		             <h2>VS</h2>
+		            </div>
+		            <div>
+		             <h2> <%= @match.goals_local_team.to_s.blank? ? 0.to_s : @match.goals_local_team.to_s %> 
+		                  <%=  '-'  %>
+		                  <%= @match.goals_visitant_team.to_s.blank? ? 0.to_s : @match.goals_visitant_team.to_s %> 
+		            </h2>
+		            </div>
+		          </div>
+		          <div class="col-md-4">
+		            <div>
+		              <div class="avatar-team details center-element" style="background-image:url(<%=@match.visitant.escudo.url(:medium)%>);">
+		              </div>
+		            </div>
+		            <span>
+		             <h2 class="text-center"><%=@match.visitant.name%></h2>
+		            </span> 
+		           </div>
+		      </div>
+	          <div class="col-md-2"></div>
+	        </div>
+	        <%if @match.status == 0 || @match.status == 1 %>
+	          <div class="events row col-md-4 offset-md-4 " style="max-height: 100px;overflow-y: scroll;">
+	        <% else %>
+	          <div class="events row col-md-4 offset-md-4 ">
+	        <% end %>
+	        <% @details_matches.each do |detail_match| %>
+		          <div class="event-wrap text-center white-text" style="margin-left:auto;margin-right:auto">
+		             <span class="event-minute"><%= detail_match.minute %>'</span>
+		             <span class="event-text"><%= detail_match.event.name %> <%= detail_match.player.last_name %> (<%= detail_match.team.name %>).</span>
+		          </div>
+	        <% end %>
+	        </div>
+         </div>
+         <% if @match.status == 0 || @match.status == 1 %>
+	      <div class="col-md-12 row" >
+ 	         <div class="col-md-4" ></div>
+	         <div class="col-md-4" >
+	           <%= form_tag({controller: "details_matches", action: "create_detail"}, method: "post" ,clas:"col-md-4" ) do |f| %>
+		          <fieldset class="form-group">
+		            <%= hidden_field_tag('match_id', @match.id) %>
+		            <%= label_tag(:team_id, "Team:") %><br>
+				    <% players_local_array = [[@match.local.name, @match.local.id], [@match.visitant.name, @match.visitant.id]] %>
+				    <%= select_tag(:team_id,options_for_select(players_local_array),:class=>"form-control",:prompt => '- choose -' ) %> 
+				   <div class="form-group autocomplete-player">
+				    <%= label_tag(:player_name, "Player:") %><br>
+					   <div class="input-group">
+					    <%= text_field_tag(:player_name,nil,:class => "form-control") %>
+					     <span class="input-group-addon">
+		                 	     <i class="fa fa-search"></i>
+		                 </span>
+					   </div>
+				   </div>
+		            <%= hidden_field_tag('player_id', 0) %>
+				   
+				   <div class="form-group">
+				    <%= label_tag(:event_id, "Event:") %><br>
+				    <% events_array = @events.map { |event| [event.name, event.id] } %>
+				    <%= select_tag(:event_id,options_for_select(events_array),:class=>"form-control",:prompt => '- choose -' ) %>
+				   </div>
+				   <div class="form-group">
+				    <%= label_tag(:minute, "Minute:") %>
+				    <%= text_field_tag(:minute,nil,:class => "form-control") %>
+				   </div>
+				   <div class="form-group">
+				     <%= submit_tag("Save event local",:class=>"btn btn-success center-element") %>
+				   </div>
+				   <div class="form-group">
+				     <%= link_to "Close match", '/matches/' << @match.id.to_s << '/close', id: "close_match", class: "btn btn-danger center-element" %>
+				   </div>
+			      </fieldset>
+	           <% end %>
+	         </div>
+	         <div class="col-md-4"></div>
+          </div>
+          <% end %>

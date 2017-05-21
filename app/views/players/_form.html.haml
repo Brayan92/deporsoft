@@ -1,0 +1,50 @@
+= form_for @player,:html => { :multipart => true } do |f|
+  - if @player.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@player.errors.count, "error")} prohibited this player from being saved:"
+      %ul
+        - @player.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group.row
+    = f.label :first_name,class:"col-sm-4 col-md-3 col-xs-12 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :first_name,class:"form-control"
+  .form-group.row
+    = f.label :last_name,class:"col-sm-4 col-md-3 col-xs-12 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :last_name,class:"form-control"
+  .form-group.row
+    = f.label :telefono,class:"col-sm-4 col-md-3 col-xs-12 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :telefono,class:"form-control"
+  .form-group.row
+    = f.label :email,class:"col-sm-4 col-md-3 col-xs-12 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :email,class:"form-control"
+  .form-group.row
+    = f.label :movil,class:"col-sm-4 col-md-3 col-xs-12 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :movil,class:"form-control"
+  .form-group.row
+    = f.label :number_id,class:"col-sm-4 col-md-3 col-xs-12 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :number_id,class:"form-control"
+  .form-group.row
+    = f.label :team,class:"col-sm-4 col-md-3 col-xs-12 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.collection_select(:team_id, @teams, :id, :name, {:prompt=>true}, {:class=>'form-control'})
+  .form-group.row
+    = f.label :tshirt_number,class:"col-sm-4 col-md-3 col-xs-12 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :tshirt_number,class:"form-control"
+  .form-group.row
+    = f.label :foto,class:"col-sm-4 col-md-3 col-xs-12 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.file_field :foto,class:"form-control"
+
+  .form-group.row
+    .offset-md-3.col-md-4
+      %button.btn.btn-success{"type"=>"submit"}
+        %i.fa.fa-floppy-o{"aria-hidden"=>"true"}
+        %span  Save player

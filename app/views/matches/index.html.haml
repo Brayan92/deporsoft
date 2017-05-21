@@ -1,0 +1,37 @@
+.col-xs-12.col-sm-12.col-md-12.col-lg-12{"style"=>"background: white;"}
+  .big-padding
+    .big-padding{"style"=>"border:solid #f7f7f9;"}
+      %h1 Matches
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Local
+            %th Visitant
+            %th Match date
+            %th Date number
+            %th Championship
+            %th Result
+            %th status
+            %th Actions
+
+        %tbody
+          - @matches.each do |match|
+            %tr
+              %td= match.id
+              %td= match.local.name
+              %td= match.visitant.name
+              %td= match.match_date
+              %td= match.date_number
+              %td= match.championship.name
+              %td= "#{match.goals_local_team} - #{match.goals_visitant_team.to_s.blank? && !match.goals_local_team.to_s.blank? ? 0.to_s : match.goals_visitant_team.to_s}" 
+              - case match.status
+                - when 0 
+                  %td= "Programmed"   
+                - when 1 
+                  %td= "In game"   
+                - when 2 
+                  %td= "Finalized"   
+              %td= link_to 'Details', 'details_match/' << match.id.to_s << '/new'
+      = will_paginate @matches,:renderer => WillPaginate::ActionView::BootstrapLinkRenderer
+ 

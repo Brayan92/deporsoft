@@ -1,0 +1,34 @@
+.col-xs-12.col-sm-12.col-md-12.col-lg-12{"style"=>"background: white;"}
+  .big-padding
+    .big-padding{"style"=>"border:solid #f7f7f9;"}
+      %h1 Teams
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th
+            %th Name
+            %th.hidden-sm-down Curso
+            %th.hidden-sm-down User
+            %th.hidden-sm-down Championship
+            %th
+        %tbody
+          - @teams.each do |team|
+            %tr
+              %td= team.id
+              %td
+                .avatar-team{style:"background-image:url(#{team.escudo.url(:medium)});"}
+              %td= team.name
+              %td.hidden-sm-down= team.curso
+              %td.hidden-sm-down= team.user.email
+              %td.hidden-sm-down= team.championship.name
+              %td
+                .dropdown
+                  %button.btn.btn-secondary.dropdown-toggle{"type"=>"button","id"=>"actions","data-toggle"=>"dropdown","aria-haspopup"=>"true","aria-expanded"=>"false"} Actions
+                  .dropdown-menu{"aria-labelledby"=>"actions"}
+                    = link_to 'Show', team,:class=>"dropdown-item"
+                    = link_to 'Edit', edit_team_path(team),:class=>"dropdown-item"
+                    %a.dropdown-item{"href"=>"/players?team_id=#{team.id}"} Players
+                    = link_to 'Destroy', team, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
+      %br
+      %a.btn.btn-success{"href"=>"/teams/new"} <i class="fa fa-plus" aria-hidden="true"></i> Add

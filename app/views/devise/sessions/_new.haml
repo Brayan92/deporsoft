@@ -1,0 +1,11 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = devise_error_messages!
+  .form-group
+    = f.label :email,class:"sr-only"
+    = f.email_field :email,class:"l-form-username form-control",placeholder: "User or email"
+  .form-group
+    = f.label :password,class:"sr-only"
+    = f.password_field :password,class:"l-form-password form-control",placeholder: "Password"
+  .form-group
+    =f.submit "Log in",class:"btn btn-main"
+        
