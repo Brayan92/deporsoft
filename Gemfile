@@ -46,7 +46,7 @@ end
 
 group :development do
   gem 'capistrano'
-  gem 'capistrano-rvm'
+  gem 'capistrano-rbenv'
   gem 'capistrano-nginx'
   gem 'capistrano3-puma'
   gem 'capistrano-rails'

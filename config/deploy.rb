@@ -3,7 +3,7 @@
 set :repo_url, 'git@github.com:Brayan92/deporsoft.git'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :user, 'rails'
+set :user, 'deploy'
 set :application, 'deporsoft'
 set :rails_env, 'production'
 server 'deporsoft.cloudsoft.com.co', user: "#{fetch(:user)}", roles: %w{app db web}, primary: true
