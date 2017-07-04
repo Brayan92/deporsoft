@@ -2,7 +2,7 @@
   %h2 Nuevo usuario
   - if @user.errors.any?
     #error_explanation
-      %h3= "#{pluralize(@championship.errors.count, "error")} prohibited this championship from being saved:"
+      %h3= "#{pluralize(@user.errors.count, "error")} prohibited this championship from being saved:"
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
@@ -34,7 +34,7 @@
     = f.label "Roles",class:"col-sm-3 col-md-2 col-form-label"
     .col-sm-6.col-xs-12.col-md-4
       - @roles.each do |role|
-        = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
+        = check_box_tag "roles[]", role.name, @user.roles.include?(role)
         = role.name      
   .form-group.row
     .offset-md-2.col-md-4

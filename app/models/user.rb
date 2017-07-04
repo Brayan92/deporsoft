@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  
-  after_create :set_default_role
+#  
+after_create :assign_default_role
+
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -10,8 +11,11 @@ class User < ApplicationRecord
   has_many :teams
 
   def fullname
-    fullname="#{self.first_name} #{self.last_name}"
-    fullname=self.email if fullname.blank?
+    fullname = ''
+    fullname << first_name if ! first_name.blank?
+    fullname << ' ' << last_name  if ! last_name.blank?
+    fullname = email if fullname.blank?
+    return fullname
   end
 
 
@@ -24,9 +28,8 @@ class User < ApplicationRecord
   		user.password = Devise.friendly_token[0,20]
   	end	
   end
+  def assign_default_role
+    self.add_role(:registrado) if self.roles.blank?
+  end
 
- private
-  def set_default_role
-    self.add_role(:registrado)
-  end  
 end

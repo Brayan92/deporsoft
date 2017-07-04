@@ -1,0 +1,24 @@
+.col-xs-12.white
+  .box       
+    .big-padding
+      %p#notice= notice
+      %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+        %thead
+          %tr
+            %th.text-center{:colspan => 2,style:"text-align:center;"}= @user.fullname
+        %tbody
+          %tr
+            %td id:
+            %td= @user.id
+          %tr
+            %td Correo:
+            %td= @user.email
+          %tr
+            %td roles:
+            %td 
+              - @user.roles.each do |role|
+                = role.name
+
+      %br
+      = link_to 'Editar', edit_user_path(@user)
+      = link_to 'Atrás', users_path
