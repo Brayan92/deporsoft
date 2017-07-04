@@ -2,29 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.main-background {
-	background-image:url(#{asset_path('bck21.png')});
-	background-size:cover;
-	background-repeat:none;
-}
 body{
+  background-image: url(#{asset_path('bck21.png')});
+  
+  /* Image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Image doesn't repeat */
+  background-repeat: no-repeat;
+  
+  /* Makes the image fixed in the viewport so that it doesn't move when 
+     the content height is greater than the image height */
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based on its container's size */
+  background-size: cover;
+  
+  /* Pick a solid background color that will be displayed while the background image is loading */
+  background-color:#464646;
+  
+  /* SHORTHAND CSS NOTATION
+   * background: url(background-photo.jpg) center center cover no-repeat fixed;
+   */
 	font-family: 'Roboto', sans-serif !important;
-}
-.main-background-form {
-	background-image:url(#{asset_path('bck1.jpg')});
-	background-size:cover;
-	background-repeat:none;
-	height: 100%;
-}
-.main-background-interna {
-	background-image:url(#{asset_path('bck21.png')});
-	background-size:cover;
-	background-repeat:none;
-}
-.main-background-jugadores {
-	background-image:url(#{asset_path('bck-juagdor.jpg')});
-	background-size:cover;
-	background-repeat:none;
 }
 .border-grey {
 	border:solid #2C3E50;
@@ -45,7 +45,7 @@ body{
     color: #888;
     line-height: 28px;
     text-align: center;
-	padding: 60px 0 80px 0;
+	padding: 20px 0 10px 0;
 	::-moz-selection { background: #42c5ea; color: #fff; text-shadow: none; }
 	::selection { background: #42c5ea; color: #fff; text-shadow: none; }
 
@@ -113,7 +113,7 @@ body{
 	.titulo .nombre {font-size:34px;font-weight: bold;	}
 	.titulo .segunda-parte {color: #0271D0;margin-left: -10px;}
 
-	.show-forms { padding-top: 40px; font-size: 20px; color: #fff; line-height: 26px; text-align: left; }
+	.show-forms { padding-top: 0px; font-size: 20px; color: #fff; line-height: 26px; text-align: left; }
 	.show-register-form, .show-forms-divider, .show-login-form { opacity: 0.6; }
 	.show-register-form, .show-login-form {
 		cursor: pointer;
@@ -133,7 +133,6 @@ body{
 	.l-form .form-group { margin-bottom: 25px; }
 	.l-form .input-error { border-color: #42c5ea; }
 
-	.forms-right-icons .row { padding-bottom: 15px; }
 	.forms-right-icons { color: #fff; text-align: left; }
 	.forms-right-icons h3 { margin-top: 0; color: #fff;font-weight: bold }
 	.forms-right-icons .icon { text-align: right; font-size: 30px; line-height: 34px; }

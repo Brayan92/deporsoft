@@ -8,24 +8,9 @@
   </head>
 
   <body>
-
-     <div class="container" style="width: 100%;
-height: 100%;
-display: -webkit-flex;
-display: -ms-flexbox;
-display: flex;
--webkit-flex-direction: column;
--ms-flex-direction: column;
-flex-direction: column;
-overflow-y: auto;
-overflow-x: hidden;
-position: relative;
--webkit-overflow-scrolling: touch;padding:0px">
-        <%= render "partials/nav" %>
-<!--        <p style="<%= 'display:none;' if notice.nil? && alert.nil?%>"><%= notice %> <%= alert %></p> -->
-        <div class="main-background-form">
+     <div class="container">
+     <%= render "partials/nav" %>
             <%= yield %>
-        </div>
     </div> 
   </body>
 </html>

@@ -28,6 +28,7 @@ gem 'devise', github: "plataformatec/devise"
 gem 'omniauth-facebook'
 gem 'flexbox_rb', "0.2.7.1"
 gem 'rolify'
+gem 'cancancan'
 gem 'jquery-datetimepicker-rails'
 gem 'bootstrap', '4.0.0.alpha3'
 source 'https://rails-assets.org' do

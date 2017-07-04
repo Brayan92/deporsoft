@@ -7,12 +7,12 @@
           %tr
             %th #
             %th 
-            %th Names
-            %th.hidden-sm-down Telefono
-            %th.hidden-sm-down Email
-            %th.hidden-sm-down Movil
-            %th.hidden-sm-down Number
-            %th.hidden-sm-down Team
+            %th Nombres
+            %th.hidden-sm-down Teléfono
+            %th.hidden-sm-down Correo
+            %th.hidden-sm-down Celular
+            %th.hidden-sm-down Identificación
+            %th.hidden-sm-down Equipo
             %th
 
         %tbody
@@ -31,11 +31,11 @@
               %td.hidden-sm-down= player.team.name
               %td
                 .dropdown
-                  %button.btn.btn-secondary.dropdown-toggle{"type"=>"button","id"=>"actions","data-toggle"=>"dropdown","aria-haspopup"=>"true","aria-expanded"=>"false"} Actions
+                  %button.btn.btn-secondary.dropdown-toggle{"type"=>"button","id"=>"actions","data-toggle"=>"dropdown","aria-haspopup"=>"true","aria-expanded"=>"false"} Acciones
                   .dropdown-menu{"aria-labelledby"=>"actions"}
-                    = link_to 'Show', player,:class=>"dropdown-item"
-                    = link_to 'Edit', edit_player_path(player),:class=>"dropdown-item"
-                    = link_to 'Destroy', player, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
+                    = link_to 'Ver', player,:class=>"dropdown-item"
+                    = link_to 'Editar', edit_player_path(player),:class=>"dropdown-item"
+                    = link_to 'Eliminar', player, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
       %br
 
       %a.btn.btn-success{"href"=>"/players/new"} <i class="fa fa-plus" aria-hidden="true"></i> Add

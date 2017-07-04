@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers:{
   	 omniauth_callbacks: "users/omniauth_callbacks"
   }
+
+  scope "/admin" do
+    resources :users
+  end
   post "/custom_sign_up", to: "users/omniauth_callbacks#custom_sign_up"
 
 

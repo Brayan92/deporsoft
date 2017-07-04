@@ -23,6 +23,8 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
+    @championships= Championship.all
+    @users= User.all
   end
 
   # POST /teams

@@ -23,6 +23,7 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+    @teams = Team.all
   end
 
   def search 

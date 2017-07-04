@@ -7,10 +7,10 @@
           %tr
             %th #
             %th
-            %th Name
+            %th Nombre
             %th.hidden-sm-down Curso
-            %th.hidden-sm-down User
-            %th.hidden-sm-down Championship
+            %th.hidden-sm-down Responsable
+            %th.hidden-sm-down Campeonato
             %th
         %tbody
           - @teams.each do |team|
@@ -24,11 +24,11 @@
               %td.hidden-sm-down= team.championship.name
               %td
                 .dropdown
-                  %button.btn.btn-secondary.dropdown-toggle{"type"=>"button","id"=>"actions","data-toggle"=>"dropdown","aria-haspopup"=>"true","aria-expanded"=>"false"} Actions
+                  %button.btn.btn-secondary.dropdown-toggle{"type"=>"button","id"=>"actions","data-toggle"=>"dropdown","aria-haspopup"=>"true","aria-expanded"=>"false"} Acciones
                   .dropdown-menu{"aria-labelledby"=>"actions"}
-                    = link_to 'Show', team,:class=>"dropdown-item"
-                    = link_to 'Edit', edit_team_path(team),:class=>"dropdown-item"
-                    %a.dropdown-item{"href"=>"/players?team_id=#{team.id}"} Players
-                    = link_to 'Destroy', team, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
+                    = link_to 'Ver', team,:class=>"dropdown-item"
+                    = link_to 'Editar', edit_team_path(team),:class=>"dropdown-item"
+                    %a.dropdown-item{"href"=>"/players?team_id=#{team.id}"} Jugadores
+                    = link_to 'Eliminar', team, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
       %br
       %a.btn.btn-success{"href"=>"/teams/new"} <i class="fa fa-plus" aria-hidden="true"></i> Add

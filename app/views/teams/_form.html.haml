@@ -7,23 +7,23 @@
           %li= msg
 
   .form-group.row
-    = f.label :name,class:"col-sm-2 col-xs-12 col-form-label"
+    = f.label "Nombre",class:"col-sm-2 col-xs-12 col-form-label"
     .col-sm-4.col-xs-12
       = f.text_field :name,class:"form-control"
   .form-group.row
-    = f.label :curso,class:"col-sm-2 col-xs-12 col-form-label"
+    = f.label "Curso",class:"col-sm-2 col-xs-12 col-form-label"
     .col-sm-4.col-xs-12
       = f.text_field :curso,class:"form-control"
   .form-group.row
-    = f.label :user,class:"col-sm-2 col-xs-12 col-form-label"
+    = f.label "Responsable",class:"col-sm-2 col-xs-12 col-form-label"
     .col-sm-4.col-xs-12
       = f.collection_select(:user_id, @users, :id, :fullname, {:prompt=>true}, {:class=>'form-control'})
   .form-group.row
-    = f.label :championship,class:"col-sm-2 col-xs-12 col-form-label"
+    = f.label "Campeonato",class:"col-sm-2 col-xs-12 col-form-label"
     .col-sm-4.col-xs-12
       = f.collection_select(:championship_id, @championships, :id, :name, {:prompt=>true}, {:class=>'form-control'})
   .form-group.row
-    = f.label :escudo,class:"col-sm-2 col-xs-12 col-form-label"
+    = f.label "Foto escudo",class:"col-sm-2 col-xs-12 col-form-label"
     .col-sm-4.col-xs-12
       = f.file_field :escudo,class:"form-control"
   .form-group.row

@@ -1,0 +1,46 @@
+= form_for @user do |f|
+  %h2 Nuevo usuario
+  - if @user.errors.any?
+    #error_explanation
+      %h3= "#{pluralize(@championship.errors.count, "error")} prohibited this championship from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group.row
+    = f.label "Número identificación",class:"col-sm-3 col-md-2 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :number_id,class:"form-control"
+  .form-group.row
+    = f.label "Nombres:",class:"col-sm-3 col-md-2 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :first_name,class:"form-control"
+  .form-group.row
+    = f.label "Apellidos:",class:"col-sm-3 col-md-2 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :last_name,class:"form-control"
+  .form-group.row 
+    = f.label "Correo:",class:"col-sm-3 col-md-2 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.text_field :email,class:"form-control"
+  .form-group.row
+    = f.label "Contraseña",class:"col-sm-3 col-md-2 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.password_field :password,class:"l-form-password form-control"
+  .form-group.row
+    = f.label "Confirmar contraseña",class:"col-sm-3 col-md-2 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      = f.password_field :password_confirmation,class:"l-form-password form-control"
+  .form-group.row
+    = f.label "Roles",class:"col-sm-3 col-md-2 col-form-label"
+    .col-sm-6.col-xs-12.col-md-4
+      - @roles.each do |role|
+        = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
+        = role.name      
+  .form-group.row
+    .offset-md-2.col-md-4
+      %button.btn.btn-success{"type"=>"submit"}
+        %i.fa.fa-floppy-o{"aria-hidden"=>"true"}
+        %span  Grabar usuario
+  .form-group.row
+    .offset-md-2.col-md-4
+      %a.btn.btn-secondary.active{"href"=>"/admin/users"} <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Atrás 

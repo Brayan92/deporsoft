@@ -1,0 +1,32 @@
+.col-xs-12.col-sm-12.col-md-12.col-lg-12{"style"=>"background: white;"}
+  .big-padding
+    .big-padding{"style"=>"border:solid #f7f7f9;"}
+      %h1 Usuarios
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th Nombre
+            %th Correo
+            %th Identificación
+            %th Ip login
+            %th Fecha login
+            %th
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td= user.id
+              %td= user.fullname
+              %td= user.email
+              %td= user.number_id
+              %td= user.last_sign_in_ip
+              %td= user.last_sign_in_at
+              %td
+                .dropdown
+                  %button.btn.btn-secondary.dropdown-toggle{"type"=>"button","id"=>"actions","data-toggle"=>"dropdown","aria-haspopup"=>"true","aria-expanded"=>"false"} Acciones
+                  .dropdown-menu{"aria-labelledby"=>"actions"}
+                    = link_to 'Ver', user,:class=>"dropdown-item"
+                    = link_to 'Editar', edit_user_path(user),:class=>"dropdown-item"
+                    = link_to 'Elimnar', user, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
+      %br
+      %a.btn.btn-success{"href"=>"/admin/users/new"} <i class="fa fa-plus" aria-hidden="true"></i> Add
