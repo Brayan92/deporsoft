@@ -24,7 +24,7 @@
           %li.nav-item.dropdown
             %a.nav-link.dropdown-toggle{"href"=>"http://example.com", "id"=>"MenuAdministration", "data-toggle"=>"dropdown", "aria-haspopup"=>"true","aria-expanded"=>"false"} Administración
             .dropdown-menu{"aria-labelledby"=>"MenuAdministration"}
-              %a.dropdown-item{"href"=>"#"} Usuarios
+              %a.dropdown-item{"href"=>"/admin/users"} Usuarios
               %a.dropdown-item{"href"=>"/events"} Eventos
         - if current_user.has_role? :admin or current_user.has_role? :capitan  or current_user.has_role? :registrado 
           %li.nav-item.dropdown
