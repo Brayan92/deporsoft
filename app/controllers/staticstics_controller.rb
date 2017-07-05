@@ -12,7 +12,7 @@ class StaticsticsController < ApplicationController
     def table_players_goals
 	    @events = []
 	    if params[:championship_id].present?
-	       @scores = Report::PlayersGoals.events.where(championship_id:params[:championship_id])
+	       @events = Report::PlayersGoals.events.where(championship_id:params[:championship_id])
 	    end
     end
   end
