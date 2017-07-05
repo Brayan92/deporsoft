@@ -1,7 +1,13 @@
 .col-xs-12.col-sm-12.col-md-12.col-lg-12{"style"=>"background: white;"}
   .big-padding
     .big-padding{"style"=>"border:solid #f7f7f9;"}
-      %h1 Matches
+      %h1 Tabla posiciones
+      .row.big-padding
+        = form_tag '/staticstics/table-positions', method: :get do
+          .col-sm-4
+            = select_tag :championship_id, options_from_collection_for_select(Championship.all, "id", "name", params[:championship_id]), prompt: "Seleccione campeonato", class: "form-control"
+          .col-sm-2
+            = submit_tag "Buscar", name: nil, class: "btn btn-primary btn-md"      
       %table.table.table-striped
         %thead
           %tr

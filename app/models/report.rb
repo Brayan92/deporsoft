@@ -21,7 +21,7 @@
       self.table_name = 'players_goals'
 
       def self.events
-        PlayersGoals.where(event_id: 3).order('cantidad desc')
+        PlayersGoals.all
       end
 
       protected

@@ -1,10 +1,19 @@
 
 class StaticsticsController < ApplicationController
     def table_positions
-      @scores =  Report::TableScore.score
+
+	    @scores = []
+
+	    if params[:championship_id].present?
+	       @scores =  Report::TableScore.score.where(championship_id:params[:championship_id])
+	    end
     end
+
     def table_players_goals
-      @events =  Report::PlayersGoals.events
+	    @events = []
+	    if params[:championship_id].present?
+	       @scores = Report::PlayersGoals.events.where(championship_id:params[:championship_id])
+	    end
     end
   end
 
