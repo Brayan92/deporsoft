@@ -4,16 +4,16 @@ $(document).ready(function(){
             'user[first_name]': {required: true,lettersonly: true},
             'user[last_name]': {required: true, lettersonly: true},
             'user[email]': {required: true,isValidEmailAddress: true},
-            'user[password]': {required: true},
-            'user[password_confirmation]':{required:true}
+            'user[password]': {required: true,minlength: 6},
+            'user[password_confirmation]':{required:true,minlength: 6}
         };
         var icon = '<i class="fa fa-times" style="color:red" aria-hidden="true"></i>';
         var validate_messages = {
             'user[first_name]': {required: icon + ' Campo requerido', lettersonly: icon + ' Solo se permiten letras.'},
             'user[last_name]': {required: icon + ' Campo requerido', lettersonly: icon + ' Solo se permiten letras.'},
             'user[email]': {required: icon + ' Campo requerido', isValidEmailAddress: icon + ' Correo invalido.'},
-            'user[password]': {required: icon + ' Campo requerido'},
-            'user[password_confirmation]':{required: icon + ' Campo requerido'}
+            'user[password]': {required: icon + ' Campo requerido', minlength: icon + ' Debe digitar mnimo 6 caracteres.'},
+            'user[password_confirmation]':{required: icon + ' Campo requerido', minlength: icon + ' Debe digitar mínimo 6 caracteres.}
         };
 
         var validator = form.validate({
