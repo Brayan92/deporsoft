@@ -14,5 +14,7 @@
     = f.password_field :password,class:"l-form-password form-control",placeholder: "Password"
   .form-group
     = f.password_field :password_confirmation,class:"l-form-password form-control",placeholder: "Repeat password"
+  .form-grouo
+    = recaptcha_tags
   .form-group
     =f.submit "Create account",class:"btn btn-main"

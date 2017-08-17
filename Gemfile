@@ -41,6 +41,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-rails', '~> 4.7'
 gem "paperclip", "~> 5.0.0"
 gem 'cocaine'
+gem "recaptcha", require: "recaptcha/rails"
 group :development, :test do
     gem 'railroady'
 end

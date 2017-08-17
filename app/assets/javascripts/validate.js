@@ -5,7 +5,8 @@ $(document).ready(function(){
             'user[last_name]': {required: true, lettersonly: true},
             'user[email]': {required: true,isValidEmailAddress: true},
             'user[password]': {required: true,minlength: 6},
-            'user[password_confirmation]':{required:true,minlength: 6}
+            'user[password_confirmation]':{required:true,minlength: 6},
+            'g-recaptcha-response': {required: true},
         };
         var icon = '<i class="fa fa-times" style="color:red" aria-hidden="true"></i>';
         var validate_messages = {
@@ -13,10 +14,14 @@ $(document).ready(function(){
             'user[last_name]': {required: icon + ' Campo requerido', lettersonly: icon + ' Solo se permiten letras.'},
             'user[email]': {required: icon + ' Campo requerido', isValidEmailAddress: icon + ' Correo invalido.'},
             'user[password]': {required: icon + ' Campo requerido', minlength: icon + ' Debe digitar mnimo 6 caracteres.'},
-            'user[password_confirmation]':{required: icon + ' Campo requerido', minlength: icon + ' Debe digitar mínimo 6 caracteres.'}
+            'user[password_confirmation]':{required: icon + ' Campo requerido', minlength: icon + ' Debe digitar mínimo 6 caracteres.'},
+            'g-recaptcha-response': {required: icon + ' Campo requerido', minlength: icon + ' Debe digitar mínimo 6 caracteres.'},
         };
 
         var validator = form.validate({
+            modules: 'security',
+            reCaptchaSize: 'normal',
+            reCaptchaTheme: 'light',
             rules: validate_rules,
             messages: validate_messages,
         });
@@ -31,5 +36,7 @@ $(document).ready(function(){
         function(value, element) {
             return this.optional(element) || /^([a-zA-Z ÁÉÍÓÚÑáéíóúñ]+)$/.test(value);
         });
+
+
 
 });
