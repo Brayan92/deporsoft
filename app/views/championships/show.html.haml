@@ -2,30 +2,33 @@
   .box       
     .big-padding
       %p#notice= notice
-      %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+      %table.table
         %thead
           %tr
-            %th.text-center{:colspan => 2,style:"text-align:center;"}= @championship.name
+            %th.text-center{:colspan => 2,style:"text-align:left;"}= @championship.name
         %tbody
           %tr
-            %td quantity_min_teams:
+            %td Cantidad equipos:
             %td= @championship.quantity_min_teams
           %tr
-            %td date_initial_inscription:
+            %td Fecha inicio inscripción:
             %td= @championship.date_initial_inscription
           %tr
-            %td date_end_inscription:
+            %td Fecha fin inscripción:
             %td= @championship.date_end_inscription
           %tr
-            %td match_duration:
+            %td Duración partido:
             %td= @championship.match_duration
           %tr
-            %td matches_simultanius:
+            %td Cantidad partidos simultaneos:
             %td= @championship.matches_simultanius
           %tr
-            %td game_days:
-            %td= @championship.game_days
+            %td Dias de juego:
+            %td
+              - @days.each do |key,day|
+                - if @championship.game_days.include?(key.to_s)
+                  = day
 
       %br
-      = link_to 'Edit', edit_championship_path(@championship)
-      = link_to 'Back', championships_path
+      = link_to 'Editar', edit_championship_path(@championship),:class=>'btn btn-primary'
+      = link_to 'Atras', championships_path,:class=>'btn btn-secondary'

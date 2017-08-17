@@ -1,9 +1,19 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @event.name
-
-= link_to 'Edit', edit_event_path(@event)
-\|
-= link_to 'Back', events_path
+.col-xs-12.white
+  .box       
+    .big-padding
+      %p#notice= notice
+      %table.table
+        %thead
+          %tr
+            %th.text-center{:colspan => 2,style:"text-align:left;"}= @event.name
+        %tbody
+          %tr
+            %td 
+              = '¿El evento suma al marcador ? '
+              - if @is_goal.present?
+                = 'SI'
+              - else
+                = 'NO'
+      %br
+      = link_to 'Editar', edit_event_path(@event),:class=>'btn btn-primary'
+      = link_to 'Atras', event_path,:class=>'btn btn-secondary'

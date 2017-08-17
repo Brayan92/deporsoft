@@ -1,5 +1,4 @@
 = form_for @championship do |f|
-  %h2 New championship
   - if @championship.errors.any?
     #error_explanation
       %h3= "#{pluralize(@championship.errors.count, "error")} prohibited this championship from being saved:"
@@ -33,12 +32,14 @@
   .form-group.row
     = f.label "Dias de juego",class:"col-sm-3 col-md-2 col-form-label"
     .col-sm-6.col-xs-12.col-md-4
-      = f.text_field :game_days,class:"form-control"
+      - @days.each do |key,day|
+        = day      
+        = check_box_tag "days[]", key, @championship.game_days.include?(key.to_s)
+
   .form-group.row
     .offset-md-2.col-md-4
       %button.btn.btn-success{"type"=>"submit"}
         %i.fa.fa-floppy-o{"aria-hidden"=>"true"}
-        %span  Save team
-  .form-group.row
-    .offset-md-2.col-md-4
-      %a.btn.btn-secondary.active{"href"=>"/championships"} <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back 
+        %span  Guardar
+      %a.btn.btn-secondary{"href"=>"/championships"} <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Atras   
+      

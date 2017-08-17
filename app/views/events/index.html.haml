@@ -1,21 +1,25 @@
-.col-xs-12.white
-  .box       
-    .big-padding
-      %h1 Listado eventos
-      %table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+.col-xs-12.col-sm-12.col-md-12.col-lg-12{"style"=>"background: white;"}
+  .big-padding
+    .big-padding{"style"=>"border:solid #f7f7f9;"}
+      %h1 Eventos
+      %table.table.table-striped
         %thead
           %tr
+            %th #
             %th Nombre
-            %th
-            %th
-            %th
+            %th 
 
         %tbody
           - @events.each do |event|
             %tr
+            %td= event.id
             %td= event.name
-            %td= link_to 'Ver', event
-            %td= link_to 'Editar', edit_event_path(event)
-            %td= link_to 'Eliminar', event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            %td
+              .dropdown
+                %button.btn.btn-secondary.dropdown-toggle{"type"=>"button","id"=>"actions","data-toggle"=>"dropdown","aria-haspopup"=>"true","aria-expanded"=>"false"} Acciones
+                .dropdown-menu{"aria-labelledby"=>"actions"}
+                  = link_to 'Ver', event,:class=>"dropdown-item"
+                  = link_to 'Editar', edit_event_path(event),:class=>"dropdown-item"
+                  = link_to 'Elimnar', event, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
       %br
-      = link_to 'Nuevo evento', new_event_path
+      %a.btn.btn-success{"href"=>"/events/new"} <i class="fa fa-plus" aria-hidden="true"></i> Agregar evento
