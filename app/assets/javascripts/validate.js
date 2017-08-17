@@ -13,7 +13,7 @@ $(document).ready(function(){
             'user[last_name]': {required: icon + ' Campo requerido', lettersonly: icon + ' Solo se permiten letras.'},
             'user[email]': {required: icon + ' Campo requerido', isValidEmailAddress: icon + ' Correo invalido.'},
             'user[password]': {required: icon + ' Campo requerido', minlength: icon + ' Debe digitar mnimo 6 caracteres.'},
-            'user[password_confirmation]':{required: icon + ' Campo requerido', minlength: icon + ' Debe digitar mínimo 6 caracteres.}
+            'user[password_confirmation]':{required: icon + ' Campo requerido', minlength: icon + ' Debe digitar mínimo 6 caracteres.'}
         };
 
         var validator = form.validate({
