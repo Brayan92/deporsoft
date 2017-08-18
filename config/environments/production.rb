@@ -18,6 +18,12 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  Recaptcha.configure do |config|
+    config.site_key  = '6LfOJi0UAAAAAEoWD0ByWlpywJixae13DZZdpaXp'
+    config.secret_key = '6LfOJi0UAAAAAB7NYVf57BnADkyejpmB37TzsGZT' 
+  end
+
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
