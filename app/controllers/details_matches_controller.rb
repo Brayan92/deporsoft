@@ -138,7 +138,6 @@ class DetailsMatchesController < ApplicationController
     end
 
     def find_yellow_cards ()
-        @player = params[:player_id]
         @events_match = DetailsMatch.where(match_id: params[:match_id], player_id:params[:player_id], event_id: 1)
         if @events_match.blank?
           return false
