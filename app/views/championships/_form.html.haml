@@ -34,7 +34,7 @@
     .col-sm-6.col-xs-12.col-md-4
       - @days.each do |key,day|
         = day      
-        = check_box_tag "days[]", key, @championship.game_days.include?(key.to_s)
+        = check_box_tag "days[]", key, @championship.game_days.present? && @championship.game_days.include?(key.to_s)
 
   .form-group.row
     .offset-md-2.col-md-4

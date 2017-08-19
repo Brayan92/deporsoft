@@ -1,28 +1,27 @@
 .col-xs-12.white
-  %p#notice= notice
-
-  %p
-    %b First name:
-    = @player.first_name
-  %p
-    %b Last name:
-    = @player.last_name
-  %p
-    %b Telefono:
-    = @player.telefono
-  %p
-    %b Email:
-    = @player.email
-  %p
-    %b Movil:
-    = @player.movil
-  %p
-    %b Number:
-    = @player.number_id
-  %p
-    %b Team:
-    = @player.team.name
-
-  = link_to 'Edit', edit_player_path(@player)
-  \|
-  = link_to 'Back', players_path
+  .box       
+    .big-padding
+      %p#notice= notice
+      %table.table
+        %thead
+          %tr
+            %th.text-center{:colspan => 2,style:"text-align:left;"}= @player.first_name << ' ' << @player.last_name
+        %tbody
+          %tr
+            %td Teléfono:
+            %td= @player.telefono
+          %tr
+            %td Email:
+            %td= @player.telefono
+          %tr
+            %td Celular:
+            %td= @player.movil
+          %tr
+            %td Cedula:
+            %td= @player.number_id
+          %tr
+            %td Equipo:
+            %td= @player.team.name
+      %br
+      = link_to 'Editar', edit_player_path(@player),:class=>'btn btn-primary'
+      = link_to 'Atras', players_path,:class=>'btn btn-secondary'

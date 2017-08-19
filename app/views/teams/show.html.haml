@@ -1,19 +1,18 @@
 .col-xs-12.white
-  %p#notice= notice
-
-  %p
-    %b Name:
-    = @team.name
-  %p
-    %b Curso:
-    = @team.curso
-  %p
-    %b User:
-    = @team.user.email
-  %p
-    %b Championship:
-    = @team.championship.name
-
-  = link_to 'Edit', edit_team_path(@team)
-  \|
-  = link_to 'Back', teams_path
+  .box       
+    .big-padding
+      %p#notice= notice
+      %table.table
+        %thead
+          %tr
+            %th.text-center{:colspan => 2,style:"text-align:left;"}= @team.name
+        %tbody
+          %tr
+            %td Correo responsable:
+            %td= @team.user.email
+          %tr
+            %td Campeonato:
+            %td= @team.championship.name
+      %br
+      = link_to 'Editar', edit_team_path(@team),:class=>'btn btn-primary'
+      = link_to 'Atras', teams_path,:class=>'btn btn-secondary'
