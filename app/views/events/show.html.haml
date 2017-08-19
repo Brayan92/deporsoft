@@ -10,7 +10,7 @@
           %tr
             %td 
               = '¿El evento suma al marcador ? '
-              - if @is_goal.present?
+              - if @event.id == 3
                 = 'SI'
               - else
                 = 'NO'
