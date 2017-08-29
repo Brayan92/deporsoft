@@ -47,7 +47,11 @@ class MatchesController < ApplicationController
 
   # GET /generate/1/matches
   def generate
-     @championship =Championship.find(params[:championship_id])
+     @championship = Championship.find(params[:championship_id])
+     if @championship.getMatches > 0
+        redirect_to '/matches?championship_id=' << @championship.id.to_s, alert: 'Ya existe una programación para el campeonato.'
+        return 
+     end
      @teams = Team.where(championship_id: @championship.id)
      @count_matches=(@teams.count * (@teams.count - 1))/ 2
      cont = 0

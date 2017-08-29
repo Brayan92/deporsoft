@@ -20,6 +20,7 @@
                 .dropdown-menu{"aria-labelledby"=>"actions"}
                   = link_to 'Ver', event,:class=>"dropdown-item"
                   = link_to 'Editar', edit_event_path(event),:class=>"dropdown-item"
-                  = link_to 'Elimnar', event, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
+                  - if event.id != 1 && event.id != 2 && event.id != 3 
+                    = link_to 'Elimnar', event, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
       %br
       %a.btn.btn-success{"href"=>"/events/new"} <i class="fa fa-plus" aria-hidden="true"></i> Agregar evento

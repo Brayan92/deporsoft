@@ -28,6 +28,5 @@
                     %a.dropdown-item{"href"=>"/teams?championship_id=#{championship.id}"} Equipos
                     %a.dropdown-item{"href"=>"/matches?championship_id=#{championship.id}"} Partidos
                     %a.dropdown-item{"href"=>"/matches-create?championship_id=#{championship.id}"} Programación
-                    = link_to 'Elimnar', championship, :method => :delete, :class=>"dropdown-item",:data => { :confirm => 'Are you sure?' }
       %br
       %a.btn.btn-success{"href"=>"/championships/new"} <i class="fa fa-plus" aria-hidden="true"></i> Add

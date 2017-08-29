@@ -1,4 +1,10 @@
 .col-xs-12.col-sm-12.col-md-12.col-lg-12.white
+  - if notice.present? || alert.present?
+    %div.small-padding
+      - if notice.present?
+        %p.alert.alert-info= notice
+      - if alert.present?
+        %p.alert.alert-danger= alert
   .big-padding
     .big-padding{"style"=>"border:solid #f7f7f9;"}
       %h1 Matches
