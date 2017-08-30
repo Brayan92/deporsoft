@@ -8,7 +8,7 @@ $(document).ready(function(){
 		delay: 500,
 		minLength: 1,
 		source: function(request, response) {
-			$.getJSON("http://localhost:3000/search-players?term="+request.term+"&team_id="+ $('#team_id').val(),
+			$.getJSON("/search-players?term="+request.term+"&team_id="+ $('#team_id').val(),
 			function(data) {
 				// data is an array of objects and must be transformed for autocomplete to use
 				var array = data.error ? [] : $.map(data, function(t) {
