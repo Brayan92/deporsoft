@@ -232,3 +232,9 @@ label.error{
     padding-top:10px;
   }
 }
+
+.new_championship , .edit_championship, .new_team , .edit_team, .new_player , .edit_player {
+  label.error{
+     background: none;
+  }
+}

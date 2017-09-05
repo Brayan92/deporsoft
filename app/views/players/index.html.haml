@@ -8,10 +8,10 @@
             %th #
             %th 
             %th Nombres
-            %th.hidden-sm-down Teléfono
-            %th.hidden-sm-down Correo
-            %th.hidden-sm-down Celular
-            %th.hidden-sm-down Identificación
+            %th.hidden-sm-down Estado
+            %th.hidden-sm-down Amarillas
+            %th.hidden-sm-down Partidos Penalizado
+            %th.hidden-sm-down Partidos pagados
             %th.hidden-sm-down Equipo
             %th
 
@@ -24,10 +24,16 @@
               %td
                 = player.first_name
                 = player.last_name
-              %td.hidden-sm-down= player.telefono
-              %td.hidden-sm-down= player.email
-              %td.hidden-sm-down= player.movil
-              %td.hidden-sm-down= player.number_id
+              %td.hidden-sm-down
+                - if player.status == 1
+                  = 'Suspendido por Amarillas'
+                - if player.status == 2
+                  = 'Suspendido por Roja'
+                - if player.status == 0
+                  = 'Activo'
+              %td.hidden-sm-down= player.yellow_cards
+              %td.hidden-sm-down= player.penalized_matches
+              %td.hidden-sm-down= player.matches_without_playing - 1
               %td.hidden-sm-down= player.team.name
               %td
                 .dropdown

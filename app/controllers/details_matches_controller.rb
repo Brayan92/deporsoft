@@ -54,6 +54,7 @@ class DetailsMatchesController < ApplicationController
     if @match.status == 0 
        @match.status = 1
        @match.save
+
     end
     respond_to do |format|
       if @details_match.save
@@ -74,7 +75,7 @@ class DetailsMatchesController < ApplicationController
                 @player.penalized_matches       = 1
                 @player.matches_without_playing = 0
             else
-                @player.yellow_cards = @player.yellow_cards + 1
+                @player.yellow_cards += 1
             end
             @player.save
            when 2
@@ -138,13 +139,14 @@ class DetailsMatchesController < ApplicationController
     end
 
     def find_yellow_cards ()
-        @events_match = DetailsMatch.where(match_id: params[:match_id], player_id:params[:player_id], event_id: 1)
-        if @events_match.blank?
+        @events_match = DetailsMatch.where(match_id: params[:match_id], player_id:params[:player_id], event_id: 1).count
+        if @events_match  < 2
           return false
         else
           return true
         end
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def details_match_params

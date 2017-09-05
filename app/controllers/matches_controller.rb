@@ -26,6 +26,10 @@ class MatchesController < ApplicationController
       @match.goals_local_team = 0 if @match.goals_local_team.nil?
       @match.goals_visitant_team = 0 if @match.goals_visitant_team.nil?
       @match.save
+
+      update_status_players(@match.local_id);
+      update_status_players(@match.visitant_id);
+
       redirect_to '/matches?championship_id=' << @match.championship_id.to_s, notice: 'Match was successfully closed.'
 
   end
@@ -174,6 +178,28 @@ class MatchesController < ApplicationController
       @match = Match.find(params[:id])
     end
 
+    def update_status_players (team_id)
+        players = Player.where(team_id:team_id)
+        players.each do |player|
+            if player.status != 0
+                player.matches_without_playing += 1
+                if player.penalized_matches < player.matches_without_playing
+                    player.status = 0
+                    player.penalized_matches = 0
+                    player.matches_without_playing = 0
+                    player.yellow_cards = 0
+                end
+            else
+                if player.yellow_cards == 2
+                    player.status = 1
+                    player.penalized_matches = 1
+                    player.matches_without_playing = 1
+                    player.yellow_cards = 0
+                end
+            end
+            player.save
+        end
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
