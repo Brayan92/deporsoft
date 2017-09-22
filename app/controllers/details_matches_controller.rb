@@ -79,6 +79,7 @@ class DetailsMatchesController < ApplicationController
             end
             @player.save
            when 2
+                @player=Player.find(@details_match.player_id)
                 @player.status = 2
                 @player.yellow_cards = 0
                 @player.red_cards = 1
