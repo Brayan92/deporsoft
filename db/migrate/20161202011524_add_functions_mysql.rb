@@ -71,8 +71,8 @@ class AddFunctionsMysql < ActiveRecord::Migration[5.0]
         DECLARE gf INT;
         DECLARE gc INT;
         DECLARE total INT;
-      SET gf=IFNULL((getGolesAFavor(team),0);        
-      SET gc=IFNULL((getGolesEnContra(team),0);        
+      SET gf=IFNULL((getGolesAFavor(team)),0);        
+      SET gc=IFNULL((getGolesEnContra(team)),0);        
       SET total = (gf - gc);
       RETURN total;
       END
