@@ -44,7 +44,7 @@
 	        <% @details_matches.each do |detail_match| %>
 		          <div class="event-wrap text-center black-text" style="margin-left:auto;margin-right:auto">
 		             <span class="event-minute"><%= detail_match.minute %>'</span>
-		             <span class="event-text"><%= detail_match.event.name %> <%= detail_match.player.last_name %> (<%= detail_match.team.name %>).</span>
+		             <span class="event-text"><%= detail_match.event.name %> <%= detail_match.player.first_name %> <%= detail_match.player.last_name %> (<%= detail_match.team.name %>).</span>
 		          </div>
 	        <% end %>
 	        </div>
