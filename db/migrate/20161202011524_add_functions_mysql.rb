@@ -39,7 +39,6 @@ class AddFunctionsMysql < ActiveRecord::Migration[5.0]
     execute sql
 
     sql = <<-SQL
-      DELIMITER $$
       CREATE FUNCTION getGolesAFavor(team INT) RETURNS INT
       BEGIN
         DECLARE mwlocal INT;
@@ -49,7 +48,6 @@ class AddFunctionsMysql < ActiveRecord::Migration[5.0]
       SET mwvisitant=IFNULL((SELECT sum(goals_visitant_team) FROM matches WHERE visitant_id = team),0);        
       SET mwtotal = (mwlocal + mwvisitant);
       RETURN mwtotal;
-      END $$
     SQL
     execute sql
 
