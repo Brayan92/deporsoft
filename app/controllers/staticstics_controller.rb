@@ -16,3 +16,4 @@ class StaticsticsController < ApplicationController
 			@events = ActiveRecord::Base.connection.execute(sql)	    	
         end
     end
+end
