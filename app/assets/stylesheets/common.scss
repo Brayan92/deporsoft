@@ -26,3 +26,6 @@ html,body{
 .top-space{
 	margin-top:1em;
 }
+div.events > div.event-wrap:nth-of-type(odd) {
+    background-color: #e7edef;
+}
