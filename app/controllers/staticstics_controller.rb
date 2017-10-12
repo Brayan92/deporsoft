@@ -5,7 +5,7 @@ class StaticsticsController < ApplicationController
 	    @scores = []
 
 	    if params[:championship_id].present?
-	       @scores =  Report::TableScore.score.where(championship_id:params[:championship_id]).order('cantidad puntos')
+	       @scores =  Report::TableScore.score.where(championship_id:params[:championship_id]).order('puntos desc')
 	    end
     end
 
