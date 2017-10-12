@@ -24,9 +24,9 @@
             - @events.each do |event|
               %tr
                 %td= position
-                %td= event.nombre
-                %td= event.equipo
-                %td= event.cantidad
+                %td= event[2]
+                %td= event[0]
+                %td= event[5]
                 - position = position + 1
 
    
