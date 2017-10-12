@@ -48,6 +48,7 @@ class AddFunctionsMysql < ActiveRecord::Migration[5.0]
       SET mwvisitant=IFNULL((SELECT sum(goals_visitant_team) FROM matches WHERE visitant_id = team),0);        
       SET mwtotal = (mwlocal + mwvisitant);
       RETURN mwtotal;
+      END
     SQL
     execute sql
 
