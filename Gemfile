@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem  'autoprefixer-rails'
+#gem  'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-sass-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -26,7 +26,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'devise', github: "plataformatec/devise"
-gem 'omniauth-facebook'
+#gem 'omniauth-facebook'
 gem 'flexbox_rb', "0.2.7.1"
 gem 'rolify'
 gem 'cancancan'
@@ -37,14 +37,14 @@ source 'https://rails-assets.org' do
 end
 gem 'will_paginate-bootstrap4'
 gem 'sass-rails', '~> 5.0' 
-gem 'autoprefixer-rails'
+#gem 'autoprefixer-rails'
 gem 'font-awesome-rails', '~> 4.7'
 gem "paperclip", "~> 5.0.0"
-gem 'cocaine'
+#gem 'cocaine'
 gem "recaptcha", require: "recaptcha/rails"
-group :development, :test do
-    gem 'railroady'
-end
+#group :development, :test do
+#    gem 'railroady'
+#end
 
 group :development do
   gem 'capistrano'
@@ -76,7 +76,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
-  gem 'listen', '~> 3.1.5'
+  gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
