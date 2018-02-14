@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-#gem  'autoprefixer-rails'
+gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-sass-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -40,11 +40,11 @@ gem 'sass-rails', '~> 5.0'
 #gem 'autoprefixer-rails'
 gem 'font-awesome-rails', '~> 4.7'
 gem "paperclip", "~> 5.0.0"
-#gem 'cocaine'
+gem 'cocaine'
 gem "recaptcha", require: "recaptcha/rails"
-#group :development, :test do
-#    gem 'railroady'
-#end
+group :development, :test do
+    gem 'railroady'
+end
 
 group :development do
   gem 'capistrano'
