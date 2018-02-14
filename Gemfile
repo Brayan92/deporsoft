@@ -26,7 +26,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'devise', github: "plataformatec/devise"
-#gem 'omniauth-facebook'
+gem 'omniauth-facebook'
 gem 'flexbox_rb', "0.2.7.1"
 gem 'rolify'
 gem 'cancancan'
